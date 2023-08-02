@@ -42,4 +42,4 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script_stop: true
           script: |
-            sudo cp -v /tmp/futurology /srv/lemmy/futurology.today/volumes/lemmy-ui/extra_themes/futurology.css
+            sudo cp -v /tmp/futurology.css /srv/lemmy/futurology.today/volumes/lemmy-ui/extra_themes/futurology.css
