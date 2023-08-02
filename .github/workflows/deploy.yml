@@ -19,10 +19,10 @@ jobs:
           node-version: '18'
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
       - name: Build CSS
-        run: sass theme.scss futurology.css --style compressed
+        run: npm run build
 
       - name: Copy file via ssh
         uses: appleboy/scp-action@v0.1.4
