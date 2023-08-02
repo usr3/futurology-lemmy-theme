@@ -32,4 +32,14 @@ jobs:
           username: "gh-actions"
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           source: "futurology.css"
-          target: "/srv/lemmy/futurology.today/volumes/lemmy-ui/extra_themes"
+          target: "/tmp"
+      
+      - name: Run commands over SSH
+        uses: appleboy/ssh-action@v0.1.5
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: gh-actions
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script_stop: true
+          script: |
+            sudo cp -v /tmp/futurology /srv/lemmy/futurology.today/volumes/lemmy-ui/extra_themes/futurology.css
